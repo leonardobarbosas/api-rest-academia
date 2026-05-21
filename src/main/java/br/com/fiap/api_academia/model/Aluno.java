@@ -25,10 +25,15 @@ public class Aluno {
     private String senha;
     private UserRole role;
 
+    @ManyToOne
+    @JoinColumn(name = "academia")
+    private Academia academia;
+
+
     public Aluno() {
     }
 
-    public Aluno(UUID id, String nome, String cpf, LocalDate dataNascimento, String email, String senha, UserRole role) {
+    public Aluno(UUID id, String nome, String cpf, LocalDate dataNascimento, String email, String senha, UserRole role, Academia academia) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -36,6 +41,7 @@ public class Aluno {
         this.email = email;
         this.senha = senha;
         this.role = role;
+        this.academia = academia;
     }
 
     public UUID getId() {
@@ -92,5 +98,13 @@ public class Aluno {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public Academia getAcademia() {
+        return academia;
+    }
+
+    public void setAcademia(Academia academia) {
+        this.academia = academia;
     }
 }

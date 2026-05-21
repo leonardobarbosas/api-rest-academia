@@ -2,6 +2,7 @@ package br.com.fiap.api_academia.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,14 +20,19 @@ public class Academia {
     @Column(name = "telefone")
     private String telefone;
 
+    @OneToMany(mappedBy = "aluno")
+    private List<Aluno> alunos;
+
+
     public Academia() {
     }
 
-    public Academia(UUID id, String nome, String endereco, String telefone) {
+    public Academia(UUID id, String nome, String endereco, String telefone, List<Aluno> alunos) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
+        this.alunos = alunos;
     }
 
     public UUID getId() {
@@ -59,5 +65,13 @@ public class Academia {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
     }
 }
