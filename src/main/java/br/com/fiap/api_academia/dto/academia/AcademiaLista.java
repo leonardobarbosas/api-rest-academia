@@ -1,4 +1,6 @@
 package br.com.fiap.api_academia.dto.academia;
 
-public class AcademiaLista {
-}
+
+import org.springframework.hateoas.Link;
+
+public record AcademiaLista(String nome, String telefone, Link link) {}

@@ -1,7 +1,6 @@
 package br.com.fiap.api_academia.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -20,12 +19,10 @@ public class Academia {
     @Column(name = "telefone")
     private String telefone;
 
-    @OneToMany(mappedBy = "aluno")
+    @OneToMany(mappedBy = "academia")
     private List<Aluno> alunos;
 
-
-    public Academia() {
-    }
+    public Academia() {}
 
     public Academia(UUID id, String nome, String endereco, String telefone, List<Aluno> alunos) {
         this.id = id;
@@ -35,43 +32,18 @@ public class Academia {
         this.alunos = alunos;
     }
 
-    public UUID getId() {
-        return id;
-    }
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getEndereco() { return endereco; }
+    public void setEndereco(String endereco) { this.endereco = endereco; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getTelefone() { return telefone; }
+    public void setTelefone(String telefone) { this.telefone = telefone; }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
+    public List<Aluno> getAlunos() { return alunos; }
+    public void setAlunos(List<Aluno> alunos) { this.alunos = alunos; }
 }

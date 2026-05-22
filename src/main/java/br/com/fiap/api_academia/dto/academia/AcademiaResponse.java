@@ -1,4 +1,7 @@
 package br.com.fiap.api_academia.dto.academia;
 
-public class AcademiaResponse {
-}
+import org.springframework.hateoas.Link;
+
+import java.util.UUID;
+
+public record AcademiaResponse(UUID id, String nome, String endereco, String telefone, Link link) {}
